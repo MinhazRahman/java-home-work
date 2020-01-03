@@ -44,6 +44,7 @@ public class AverageCalculation {
 
             System.out.println( "Display Array from index last to 0: ");
 
+            //reverse the array
             for(int i = 0; i < n/2; i++){
                 //swap
                 int temp = ia[i];
