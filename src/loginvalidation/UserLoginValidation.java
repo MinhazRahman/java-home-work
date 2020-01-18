@@ -32,15 +32,6 @@ import java.util.Scanner;
 
 public class UserLoginValidation {
 
-    public static void pause() throws InterruptedException {
-
-        for (int i = 0; i < 5; i++){
-
-            System.out.print("...");
-            Thread.sleep(1000); //pause for 1 sec
-        }
-    }
-
     public static void main(String[] args) throws InterruptedException {
 
         //instance of scanner
@@ -128,7 +119,6 @@ public class UserLoginValidation {
 
             System.out.println("\nSorry, your account will be locked for 10 min");
             System.out.print("Please Wait...");
-            pause();
             System.out.println("\nStart Over");
         }
         else if(isOnHomepage){
