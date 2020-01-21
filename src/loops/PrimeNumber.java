@@ -23,6 +23,16 @@ public class PrimeNumber {
         System.out.println("Please enter a number: " );
         number = input.nextInt();
 
+        //when number is less than 2
+        if(number < 2){
+
+            isPrime = false;
+        }
+        else {
+
+            isPrime = true;
+        }
+
         //prime number or not
         for (int i = 2; i <= Math.sqrt(number); i++){
 
