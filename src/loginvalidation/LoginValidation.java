@@ -61,7 +61,7 @@ public class LoginValidation {
 
         //Creating while loop to give user max tries to enter valid password and username,
         // and log the user to system if correct username and password is entered
-        while ((!actualUserName.equals(expectedUserName)) || (!actualPassword.equals(expectedPassword))){
+        while ((!actualUserName.equalsIgnoreCase(expectedUserName)) || (!actualPassword.equals(expectedPassword))){
             
             //show login error message
             System.out.println("Incorrect username or password.");

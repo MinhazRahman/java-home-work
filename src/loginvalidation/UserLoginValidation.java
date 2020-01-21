@@ -69,7 +69,7 @@ public class UserLoginValidation {
         for (int i = 1; i <= maxAttempt; i++) {
 
             //check for valid username and password
-            isValidUserName = actualUserName.equals(expectedUserName);
+            isValidUserName = actualUserName.equalsIgnoreCase(expectedUserName);
             isValidPassword = actualPassword.equals(expectedPassword);
 
             //when actual password and user name doesn't match with the actual password or user name respectively
