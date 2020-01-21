@@ -119,7 +119,7 @@ public class Utility {
         return sum;
     }
 
-    /* 4. Sort an array */
+    /* 4. Sort an array using insertion sort algorithm */
     public int[] sort(int[] a) {
 
         //number of elements in the array
@@ -136,16 +136,18 @@ public class Utility {
             key = a[i];
             j = i-1;
 
-            //insert the key into sorted portion
+            //move the larger values to the right
             while(j>= 0 && a[j]>key) {
 
-                //swap
+                //move the larger element to the right
                 a[j+1] = a[j];
-                a[j] = key;
 
                 //move down the sorted portion by decreasing j
                 --j;
             }
+
+            //insert the key at the right position
+            a[j+1] = key;
 
         }
 

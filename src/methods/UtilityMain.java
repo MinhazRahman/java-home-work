@@ -24,6 +24,9 @@ public class UtilityMain {
         //3. sum of array elements
         System.out.println(utility.sumOf(arr));
 
+        //4. sort the array arr
+        System.out.println("Sorted array: " + Arrays.toString(utility.sort(arr)));
+
         //5. find the average of a given array
         System.out.println(utility.findAverageOf(arr));
 
