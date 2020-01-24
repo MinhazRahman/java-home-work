@@ -31,47 +31,80 @@ import java.util.Arrays;
 
 public class Utility {
 
-    //1. Create a method to return missing smallest positive integer (greater than 0) from given array.
+    //1a). returns missing smallest positive integer (greater than 0) from given array.
     public static int findMissingSmallestInteger(int[] arr){
 
-        //initialization
-        int n = 0;
-        int max = 0;
-
-        //find negative numbers
+        //find the largest number in the array
+        int max = arr[0];
         for(int i = 0; i < arr.length; i++){
 
-            if(i <= 0){
+            if(arr[i] > max){
 
-                n++;
+                max = arr[i];
             }
         }
 
-        //create an array that will hold positive numbers
-        int[] nums = new int[arr.length - n];
-        int j = 0;
+        //create an array of length max + 1
+        int[] num = new int[max + 1];
+
+        //update the array num[0..max] at the corresponding index position
+        //for each value of arr[0..arr.length - 1]
         for(int i = 0; i < arr.length; i++){
 
-            if(arr[i] <= 0){
+            if(arr[i] > 0){
 
-                nums[j] = arr[i];
-                j++;
+                num[arr[i]]++;
             }
         }
 
-        //sort the array
-        Arrays.sort(arr);
-        max = nums[nums.length - 1];
+        //find the missing element
+        for (int j = 1; j < num.length; j++){
 
-        for(int i = 1; i < max; i++){
+            if(num[j] == 0){
 
-            if(i != nums[i]){
-
-                return i;
+                return j;
             }
         }
 
-        return max;
+        return -1;
+    }
+
+    //1b). returns missing smallest positive integer (greater than 0) from given array.
+    public static int missingSmallestInteger(int[] arr){
+
+        //find the largest number in the array
+        int max = arr[0];
+        for(int i = 0; i < arr.length; i++){
+
+            if(arr[i] > max){
+
+                max = arr[i];
+            }
+        }
+
+        //create an array of length max + 1
+        boolean[] booleans = new boolean[max + 1];
+
+        //update the array num[0..max] at the corresponding index position
+        //for each value of arr[0..arr.length - 1]
+        for(int i = 0; i < arr.length; i++){
+
+            if(arr[i] > 0){
+
+                booleans[arr[i]] = true;
+            }
+        }
+
+        //find the missing element
+        for (int j = 1; j < booleans.length; j++){
+
+            if(!booleans[j]){
+
+                return j;
+            }
+        }
+
+        return -1;
     }
 
     //2. Write a Java program to remove a specific element from an array.
