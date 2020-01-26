@@ -31,9 +31,10 @@ import java.util.Arrays;
 
 public class Utility {
 
-    //1a). returns missing smallest positive integer (greater than 0) from given array.
+    /* 1. returns missing smallest positive integer (greater than 0) from a given array */
     public static int findMissingSmallestInteger(int[] arr){
-
+        //the smallest positive integer (greater than 0)
+        int n = 1;
         //find the largest number in the array
         int max = arr[0];
         for(int i = 0; i < arr.length; i++){
@@ -44,70 +45,38 @@ public class Utility {
             }
         }
 
-        //create an array of length max + 1
-        int[] num = new int[max + 1];
+        /*if the array contains all negative numbers then the max value will be < 0
+        or if the max value is 0, that means if the max value <= 0
+        then n = 1 will be the smallest positive integer (greater than 0) */
+        if(max <= 0){
 
-        //update the array num[0..max] at the corresponding index position
-        //for each value of arr[0..arr.length - 1]
-        for(int i = 0; i < arr.length; i++){
-
-            if(arr[i] > 0){
-
-                num[arr[i]]++;
-            }
+            return n;
         }
 
-        //find the missing element
-        for (int j = 1; j < num.length; j++){
-
-            if(num[j] == 0){
-
-                return j;
+        /*If max is a positive number greater than 0, the missing smallest positive integer will be
+        between 1 and max value */
+        for(int i = 1; i <= max; i++){
+            //search for i
+            if(!search(arr, i)){
+                return i;
             }
         }
-
-        return -1;
+        return n;
     }
 
-    //1b). returns missing smallest positive integer (greater than 0) from given array.
-    public static int missingSmallestInteger(int[] arr){
+    //a is an array and x is the value we are searching for
+    public static boolean search(int[] a, int x) {
+        //iterate over the array and search for x
+        for(int i=0; i< a.length; i++) {
 
-        //find the largest number in the array
-        int max = arr[0];
-        for(int i = 0; i < arr.length; i++){
-
-            if(arr[i] > max){
-
-                max = arr[i];
+            if(x == a[i]) {
+                return true; //found
             }
         }
-
-        //create an array of length max + 1
-        boolean[] booleans = new boolean[max + 1];
-
-        //update the array num[0..max] at the corresponding index position
-        //for each value of arr[0..arr.length - 1]
-        for(int i = 0; i < arr.length; i++){
-
-            if(arr[i] > 0){
-
-                booleans[arr[i]] = true;
-            }
-        }
-
-        //find the missing element
-        for (int j = 1; j < booleans.length; j++){
-
-            if(!booleans[j]){
-
-                return j;
-            }
-        }
-
-        return -1;
+        return false; //not found
     }
 
-    //2. Write a Java program to remove a specific element from an array.
+    /* 2. Write a Java program to remove a specific element from an array */
     public static int[] removeElement(int[] arr, int element){
 
         //n is the number of times the element is found in the original array
@@ -145,7 +114,7 @@ public class Utility {
         return newArray;
     }
 
-    //3. Scenario: Traffic ticketing system
+    /* 3. Scenario: Traffic ticketing system */
     public static int trafficTicketingSystem(int userSpeed){
 
         //initialization
@@ -156,7 +125,7 @@ public class Utility {
         //difference in speed
         int difference = userSpeed - speedLimit;
 
-        //when difference in speed is less 5
+        //when difference in speed is less than 5
         if(difference < 5){
 
             return point;
@@ -176,9 +145,6 @@ public class Utility {
             System.out.println("The license is suspended.");
             return point;
         }
-
         return point;
     }
-
-
 }
