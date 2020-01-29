@@ -19,6 +19,7 @@ public class UtilityMain {
         //1. Create a method to return missing smallest positive integer (greater than 0) from given array.
         int missingElement = Utility.findMissingSmallestInteger(e);
         System.out.println("Missing Element: " + missingElement);
+        System.out.println("Missing Smallest Integer: " + MissingSmallestInteger.findMissingSmallestInteger(e));
 
         //2. remove a specific element from an array.
         int[] updatedArray = Utility.removeElement(a, 78);
