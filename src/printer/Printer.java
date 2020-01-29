@@ -80,11 +80,20 @@ public class Printer {
 
     /*print single side of a sheet of paper, where printedSheets = number of printed pages
     print both sides of a sheet of paper, where printedSheets = (number of printed pages/2)*/
-    public void printPage(int numberOfSinglePages, int beginningPageNo, boolean singleSided){
-        //start printing from beginningPageNo
-        int pageNo = beginningPageNo;
+    public void printPage(int numberOfSinglePages, int fromPage, boolean singleSided){
+
+        //page number
+        int pageNo = 0;
+
+        if(!(fromPage >= 1 && fromPage <= numberOfSinglePages)){
+
+            System.out.println("!!!Page setup error!!!");
+            return;
+        }
+        //start printing from fromPage
+        pageNo = fromPage;
         //print each page
-        System.out.println("Printing....( " + numberOfSinglePages + " pages )...");
+        System.out.println("Printing..." + " pages...");
         while (tonerLevel != 0 && pageNo <= numberOfSinglePages){
             //Max pages can be printed == 100
             if(printedPages == MAX_PRINTED_PAGE){
@@ -105,7 +114,14 @@ public class Printer {
             printedSheets = printedPages;
         }
         else {
-            printedSheets = (printedPages/2);
+
+            if(printedPages % 2== 0){
+
+                printedSheets = (printedPages/2);
+            }
+            else {
+                printedSheets = (printedPages/2) + 1;
+            }
         }
 
         //printing is done or low toner

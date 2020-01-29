@@ -12,7 +12,7 @@ public class BuildPrinter {
         printerTwo.setTonerLevel(10);
         System.out.println("Toner Level: " + printerTwo.getTonerLevel());
 
-        printerTwo.printPage(100, 1, false);
+        printerTwo.printPage(20, 18, false);
 
         System.out.println("Number of Printed pages: " + printerTwo.getPrintedPages());
         System.out.println("Number of Printed sheets: " + printerTwo.getPrintedSheets());
