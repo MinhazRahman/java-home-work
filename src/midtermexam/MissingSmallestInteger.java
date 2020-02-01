@@ -41,7 +41,7 @@ public class MissingSmallestInteger {
                 }
             }
 
-            if (found){
+            if (!found){
 
                 return i;
             }

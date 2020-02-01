@@ -16,7 +16,7 @@ public class UtilityMain {
 
         int[] e=  {-1, -3, -4, -2};
 
-        //1. Create a method to return missing smallest positive integer (greater than 0) from given array.
+        //1.method to return missing smallest positive integer (greater than 0) from given array.
         int missingElement = Utility.findMissingSmallestInteger(e);
         System.out.println("Missing Element: " + missingElement);
         System.out.println("Missing Smallest Integer: " + MissingSmallestInteger.findMissingSmallestInteger(e));
